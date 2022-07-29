@@ -1,0 +1,118 @@
+.wrapper {
+    width: 100%;
+    height: var(--header-height);
+    box-shadow: 0px 1px 1px rgb(0 0 0 / 12%);
+    display: flex;
+    justify-content: center;
+}
+.content {
+    width: var(--width-content);
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+}
+.search {
+    width: 361px;
+    height: 46px;
+    padding-left: 16px;
+    background: rgb(22 24 35 / 6%);
+    border-radius: 92px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    border: 1.5px solid transparent;
+    input {
+        flex: 1;
+        height: 100%;
+        color: #828282;
+        border: none;
+        // font-size: 1.6rem;
+        // line-height: 22px;
+        background-color: transparent;
+        outline: none;
+        caret-color: red;
+    }
+    &::after {
+        content: '';
+        position: absolute;
+        top: 9px;
+        right: 52px;
+        width: 1px;
+        height: calc(46px - 18px);
+        background: rgb(22 24 35 / 12%);
+    }
+    &:focus-within {
+        border-color: rgb(22 24 35 / 20%);
+    }
+}
+
+.loading,
+.clear {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: calc(52px + 16px);
+    border: none;
+    outline: none;
+    font-size: 1.6rem;
+    color: #a6a7ab;
+    // display: none;
+}
+
+.search-btn {
+    width: 52px;
+    height: 100%;
+    border: none;
+    font-size: 1.6rem;
+    cursor: pointer;
+    color: #a6a7ab;
+    &:hover {
+        background: rgb(22 24 35 / 3%);
+    }
+}
+.search-result {
+    width: 361px;
+}
+.search-title {
+    height: 30px;
+    padding: 5px 12px;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 600;
+    color: rgb(22 24 35 / 50%);
+}
+.more-btn {
+    width: 20px;
+    height: 20px;
+    font-size: 1.6rem;
+    margin-left: 16px;
+    cursor: pointer;
+    padding: 0 4px;
+    background-color: transparent;
+}
+// Actions
+.actions {
+    display: flex;
+    align-items: center;
+}
+.action-btn {
+    width: 32px;
+    height: 32px;
+    font-size: 2.2rem;
+    margin-left: 16px;
+    background-color: transparent;
+    cursor: pointer;
+}
+.message-btn{
+    padding: 4px 0;
+}
+// User
+.user-avatar {
+    width: 32px;
+    border-radius: 50%;
+    margin-left: 16px;
+    cursor: pointer;
+}

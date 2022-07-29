@@ -1,12 +1,38 @@
-import logo from "./logo.svg";
-import "./App.css";
-import Button from "~/components/Button/Button";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Fragment } from 'react';
+import './App.css';
+import { publicRoutes } from '~/routes';
+import DefaultLayout from './components/Layout/DefaultLayout';
+import HeaderOnly from './components/Layout/HeaderOnly';
+
 function App() {
-  return (
-    <div className="App">
-      <Button />
-    </div>
-  );
+    return (
+        <Router>
+            <div className="App"></div>
+            <Routes>
+                {publicRoutes.map((e, index) => {
+                    let Layout = DefaultLayout;
+                    if (e.layout) {
+                        Layout = e.layout;
+                    } else if (e.layout === null) {
+                        Layout = Fragment;
+                    }
+                    const Page = e.component;
+                    return (
+                        <Route
+                            key={index}
+                            path={e.path}
+                            element={
+                                <Layout>
+                                    <Page />
+                                </Layout>
+                            }
+                        />
+                    );
+                })}
+            </Routes>
+        </Router>
+    );
 }
 
 export default App;
