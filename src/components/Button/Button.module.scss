@@ -5,6 +5,7 @@
 }
 // Button Type
 .primary {
+    min-width: 110px;
     font-size: 1.6rem;
     border: none;
     color: rgb(255 255 255);
@@ -18,13 +19,35 @@
     }
 }
 .normal {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+    font-weight: 600;
+    font-size: 18px;
+    background-color: var(--white);
+    &:hover {
+        background-color: rgb(22 24 35 / 3%);
+    }
+    .title {
+        font-size: 18px;
+    }
+    .leftIcon {
+        text-align: start;
+        line-height: 32px;
+        width: 32px;
+        height: 32px;
+    }
+}
+.border {
     min-width: 110px;
     padding: 0 16px;
     height: 36px;
     font-weight: 600;
     font-size: 16px;
     line-height: 24px;
-    color: rgb(22 24 35);
+    color: #161823;
     border: 1px solid rgb(22 24 35 / 12%);
     background-color: var(--white);
     &:hover {
@@ -33,9 +56,9 @@
 }
 .rounded {
     font-size: 1.4rem;
-    color: rgb(22 24 35 / 75%);
+    color: #fff;
     padding: 0 8px;
-    min-width: 90px;
+    min-width: 32px;
     height: 32px;
     box-shadow: 0 2px 8px rgb(0 0 0 / 6%);
     border-radius: 52px;
@@ -43,10 +66,9 @@
     position: fixed;
     right: 24px;
     bottom: 12px;
-    border: 1px solid rgb(22 24 35 / 12%);;
+    background-color: rgb(254 44 85);
     &:hover {
-        border-color: rgb(22 24 35 / 20%);
-        background-color: rgb(22 24 35 / 3%);
+        background: linear-gradient(0deg, rgb(0 0 0 / 6%), rgb(0 0 0 / 6%)), rgb(254 44 85);
     }
 }
 // Button Size
@@ -78,13 +100,13 @@
         background-color: rgb(254 44 85 / 6%);
     }
 }
-.leftIcon{
+.leftIcon {
     width: 20px;
     height: 20px;
     text-align: center;
     display: inline-block;
     margin-right: 6px;
 }
-.title{
+.title {
     font-size: 1.6rem;
 }

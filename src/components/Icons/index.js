@@ -1,5 +1,5 @@
 import { forwardRef } from 'react';
-const MessageIcon = forwardRef(({ className, width = '3.2rem', height = '3.2rem' }, ref) => {
+const MessageIcon = forwardRef(({ className, width = '2.2rem', height = '2.2rem' }, ref) => {
     return (
         <svg
             ref={ref}
@@ -18,10 +18,10 @@ const MessageIcon = forwardRef(({ className, width = '3.2rem', height = '3.2rem'
         </svg>
     );
 });
-const MailIcon = forwardRef(({ className, width = '3.2rem', height = '3.2rem' }, ref) => {
+const MailIcon = forwardRef(({ className, width = '2.2rem', height = '2.2rem' }, ref) => {
     return (
         <svg
-            ref={ref}   
+            ref={ref}
             className={className}
             width={width}
             height={height}
@@ -37,4 +37,5 @@ const MailIcon = forwardRef(({ className, width = '3.2rem', height = '3.2rem' },
         </svg>
     );
 });
+
 export { MessageIcon, MailIcon };

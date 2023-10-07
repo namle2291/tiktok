@@ -1,34 +1,30 @@
-import React, { Fragment, useEffect, useState } from 'react';
-import classNames from 'classnames/bind';
+import React from 'react';
 import Tippy from '@tippyjs/react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Link } from 'react-router-dom';
+
 import 'tippy.js/dist/tippy.css';
 import {
-    faCloudUpload,
-    faLocationArrow,
-    faMessage,
+    faArrowUp,
     faCog,
     faEllipsisV,
     faGlobeAmericas,
     faKeyboard,
     faPlus,
     faQuestionCircle,
-    faSearch,
     faSignOut,
-    faSpinner,
-    faTimesCircle,
     faUser,
 } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { MailIcon, MessageIcon } from '~/components/Icons';
+import { faTiktok } from '@fortawesome/free-brands-svg-icons';
 
-import styles from './Header.module.scss';
 import Button from '~/components/Button';
 import Menu from '~/components/Layout/Popper/Menu';
-import { faTiktok } from '@fortawesome/free-brands-svg-icons';
-import { MailIcon, MessageIcon } from '~/components/Icons';
 import Image from '~/components/Images';
-import { Link } from 'react-router-dom';
 import Search from '../Search/Search';
 
+import styles from './Header.module.scss';
+import classNames from 'classnames/bind';
 const cx = classNames.bind(styles);
 
 const MENU_ITEMS = [
@@ -97,22 +93,15 @@ const userMenu = [
         separate: true,
     },
 ];
+
 function Header() {
-    const [searchResult, setSearchResult] = useState([]);
-
-    const [key, setKey] = useState('');
-
-    useEffect(() => {
-        console.log(key);
-    }, [key]);
-
-    const user = false;
+    const user = true;
 
     return (
         <header className={cx('wrapper')}>
             <div className={cx('content')}>
                 <Link to="/" className={cx('logo')}>
-                    <svg xmlns="http //www.w3.org/2000/svg" height="42" width="118" alt="TikTok">
+                    <svg xmlns="http//www.w3.org/2000/svg" height="42" width="118" alt="TikTok">
                         <g clipPath="url(#clip0)">
                             <path
                                 d="M9.87537 16.842V15.7233C9.49211 15.6721 9.10246 15.6401 8.70003 15.6401C3.90288 15.6338 0 19.5399 0 24.3475C0 27.2947 1.46917 29.9031 3.71764 31.4822C2.26763 29.9287 1.37974 27.8381 1.37974 25.5494C1.37974 20.8121 5.17403 16.9507 9.87537 16.842Z"
@@ -183,27 +172,30 @@ function Header() {
                 <div className={cx('actions')}>
                     {user ? (
                         <>
-                            <Button normal leftIcon={<FontAwesomeIcon icon={faPlus} />}>
+                            <Button border leftIcon={<FontAwesomeIcon icon={faPlus} />}>
                                 Tải lên
                             </Button>
                             <Tippy content="Tin nhắn" placement="bottom">
-                                <MessageIcon />
+                                <button className={cx('action-button')}>
+                                    <MessageIcon width={26} height={26} />
+                                </button>
                             </Tippy>
-
                             <Tippy content="Hộp thư" placement="bottom">
-                                <MailIcon />
+                                <button className={cx('action-button')}>
+                                    <MailIcon width={32} height={32} />
+                                </button>
                             </Tippy>
                         </>
                     ) : (
                         <>
-                            <Button normal leftIcon={<FontAwesomeIcon className={cx('plus')} icon={faPlus} />}>
+                            <Button border leftIcon={<FontAwesomeIcon className={cx('plus')} icon={faPlus} />}>
                                 <span>Tải lên</span>
                             </Button>
                             <Button primary>
                                 <span>Đăng nhập</span>
                             </Button>
                             <Button rounded>
-                                <span>Tải ứng dụng</span>
+                                <FontAwesomeIcon icon={faArrowUp} />
                             </Button>
                         </>
                     )}
@@ -211,7 +203,7 @@ function Header() {
                         {user ? (
                             <Image
                                 className={cx('user-avatar')}
-                                src="https://scontent.fvca1-4.fna.fbcdn.net/v/t39.30808-6/277561472_1583787875331078_4023961325792651065_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=174925&_nc_ohc=Vc8oca_AiiQAX9PwHmr&_nc_ht=scontent.fvca1-4.fna&oh=00_AT-DkLrdkc8HUHjqFIyh96ggvHiRRn_Mqi_Ap9wRDSyMUQ&oe=62F37FB4"
+                                src="https://files.fullstack.edu.vn/f8-tiktok/users/6339/6520febde3a16.jpg"
                                 alt="NamLee"
                             />
                         ) : (

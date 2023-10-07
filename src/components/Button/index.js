@@ -6,22 +6,23 @@ import styles from './Button.module.scss';
 const cx = classNames.bind(styles);
 
 export default function Button({
-    normal,
-    primary,
-    rounded,
-    small,
-    large,
-    to,
-    href,
-    children,
-    onClick,
-    leftIcon,
-    rightIcon,
-    className,
+    normal = null,
+    primary = null,
+    rounded = null,
+    small = null,
+    border = null,
+    large = null,
+    to = null,
+    href = null,
+    children = null,
+    onClick = null,
+    leftIcon = null,
+    rightIcon = null,
+    className = null,
     ...passProps
 }) {
     let Comp = 'button';
-    const classes = cx('wrapper', { normal, primary, rounded, small, large }, className);
+    const classes = cx('wrapper', { normal, border, primary, rounded, small, large }, className);
     let props = {
         to,
         href,
