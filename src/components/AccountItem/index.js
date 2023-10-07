@@ -7,15 +7,19 @@ const cx = classNames.bind(styles);
 
 export default function Account() {
   return (
-    <div className={cx('wrapper')}>
-        <img className={cx('avatar')} src='https://scontent.fsgn4-1.fna.fbcdn.net/v/t39.30808-6/277561472_1583787875331078_4023961325792651065_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=174925&_nc_ohc=sr1udX4Sj2oAX-AvVse&_nc_ht=scontent.fsgn4-1.fna&oh=00_AT9ed0dC4gntyKSk2HLe9JhAQL0fqbxk7wCv1sogyyRYpw&oe=62E5A7F4' alt='LSN'/>
-        <div className={cx('info')}>
-            <h4 className={cx('name')}>
-                <span>NamLee</span>
-                <FontAwesomeIcon className={cx('check')} icon={faCheckCircle}/>
-            </h4>
-            <span className={cx('username')}>Lensko-LSN</span>
-        </div>
-    </div>
-  )
+      <div className={cx('wrapper')}>
+          <img
+              className={cx('avatar')}
+              src="https://static.vecteezy.com/system/resources/previews/009/122/855/original/lsn-logo-lsn-letter-lsn-letter-logo-design-initials-lsn-logo-linked-with-circle-and-uppercase-monogram-logo-lsn-typography-for-technology-business-and-real-estate-brand-vector.jpg"
+              alt="LSN"
+          />
+          <div className={cx('info')}>
+              <h4 className={cx('name')}>
+                  <span>LSN</span>
+                  <FontAwesomeIcon className={cx('check')} icon={faCheckCircle} />
+              </h4>
+              <span className={cx('username')}>Lensko-LSN</span>
+          </div>
+      </div>
+  );
 }

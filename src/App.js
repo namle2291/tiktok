@@ -3,7 +3,6 @@ import { Fragment } from 'react';
 import './App.css';
 import { publicRoutes } from '~/routes';
 import DefaultLayout from './components/Layout/DefaultLayout';
-import HeaderOnly from './components/Layout/HeaderOnly';
 
 function App() {
     return (
