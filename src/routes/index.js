@@ -1,10 +1,11 @@
-import Home from '~/pages/Home';
-import Following from '~/pages/Following';
-import Profile from '~/pages/Profile';
-import Upload from '~/pages/Profile';
-import HeaderOnly from '~/components/Layout/HeaderOnly';
-import Search from '~/pages/Search';
-import DefaultLayout from '~/components/Layout/DefaultLayout';
+import Home from '~/pages/Home/Home';
+import Following from '~/pages/Following/Following';
+import Profile from '~/pages/Profile/Profile';
+import Upload from '~/pages/Profile/Profile';
+import Search from '~/pages/Search/Search';
+
+import HeaderOnly from '~/components/Layout/HeaderOnly/HeaderOnly';
+import DefaultLayout from '~/components/Layout/DefaultLayout/DefaultLayout';
 
 const publicRoutes = [
     {

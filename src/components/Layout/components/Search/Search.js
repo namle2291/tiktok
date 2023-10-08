@@ -6,13 +6,14 @@ import 'tippy.js/dist/tippy.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faSpinner, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 
-import Account from '~/components/AccountItem';
+import Account from '~/components/AccountItem/Account';
 import { Wrapper as PopperWrapper } from '../../Popper';
 import * as searchService from '~/services/searchService';
 
 import classNames from 'classnames/bind';
 import styles from './Search.module.scss';
 import { useDebounce } from '@uidotdev/usehooks';
+import { SearchIcon } from '~/components/Icons/Icons';
 const cx = classNames.bind(styles);
 
 export default function Search() {
@@ -34,7 +35,7 @@ export default function Search() {
         const fetchAPI = async () => {
             setLoading(true);
             const response = await searchService.getUserSearch(debouncedValue);
-            setSearchResult(response.data);
+            setSearchResult(response);
             setLoading(false);
         };
 
@@ -60,7 +61,7 @@ export default function Search() {
     };
 
     return (
-        <div>
+        <>
             <HeadlessTippy
                 interactive
                 visible={showResult && searchResult.length > 0}
@@ -76,11 +77,11 @@ export default function Search() {
                 )}
                 onClickOutside={handleHideResult}
             >
-                <div className={cx('search')}>
+                <div className={cx('wrapper')}>
                     <input
                         ref={inputRef}
                         value={searchValue}
-                        placeholder="Tìm tài khoản hoặc video..."
+                        placeholder="Tìm kiếm"
                         spellCheck={false}
                         onChange={handleChange}
                         onFocus={() => setShowResult(true)}
@@ -93,10 +94,10 @@ export default function Search() {
                     {loading && <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />}
 
                     <button className={cx('search-btn')} onMouseDown={(e) => e.preventDefault()}>
-                        <FontAwesomeIcon icon={faSearch} />
+                        <SearchIcon />
                     </button>
                 </div>
             </HeadlessTippy>
-        </div>
+        </>
     );
 }

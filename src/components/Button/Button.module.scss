@@ -5,15 +5,14 @@
 }
 // Button Type
 .primary {
-    min-width: 110px;
+    min-width: 100px;
     font-size: 1.6rem;
     border: none;
     color: rgb(255 255 255);
     background-color: rgb(254 44 85);
-    padding: 6px 8px;
+    padding: 5px 8px;
     font-weight: 600;
     line-height: 25px;
-    margin-left: 16px;
     &:hover {
         background: linear-gradient(0deg, rgb(0 0 0 / 6%), rgb(0 0 0 / 6%)), rgb(254 44 85);
     }
@@ -23,12 +22,42 @@
     justify-content: start;
     align-items: center;
     width: 100%;
-    padding: 10px;
+    height: 48px;
+    font-weight: 600;
+    font-size: 18px;
+    padding: 8px;
+    background-color: var(--white);
+    transition: 0.3s;
+    &:hover {
+        background-color: rgb(22 24 35 / 3%);
+    }
+    .title {
+        font-size: 18px;
+        font-weight: bold;
+    }
+    .leftIcon {
+        text-align: start;
+        line-height: 32px;
+        width: 32px;
+        height: 32px;
+    }
+}
+.tab {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 140px;
+    height: 48px;
+    padding: 8px;
     font-weight: 600;
     font-size: 18px;
     background-color: var(--white);
+    border: 2px solid transparent;
+    border-radius: 0;
+    color: rgb(115, 116, 123);
+    transition: 0.3s;
     &:hover {
-        background-color: rgb(22 24 35 / 3%);
+        border-bottom: 2px solid #161823;
     }
     .title {
         font-size: 18px;
@@ -41,17 +70,36 @@
     }
 }
 .border {
-    min-width: 110px;
+    min-width: 111.062px;
     padding: 0 16px;
-    height: 36px;
+    min-height: 34.4px;
     font-weight: 600;
     font-size: 16px;
     line-height: 24px;
     color: #161823;
     border: 1px solid rgb(22 24 35 / 12%);
     background-color: var(--white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
     &:hover {
         background-color: rgb(22 24 35 / 3%);
+    }
+}
+.outline {
+    width: 96px;
+    height: 32px;
+    padding: 1px 15px;
+    font-size: 16px;
+    color: #fe2c55;
+    border: 1px solid #fe2c55;
+    background-color: var(--white);
+    &:hover {
+        background-color: #fe2c5514;
+    }
+    span {
+        height: 24px;
+        font-weight: bold;
     }
 }
 .rounded {
@@ -66,6 +114,7 @@
     position: fixed;
     right: 24px;
     bottom: 12px;
+    z-index: 99;
     background-color: rgb(254 44 85);
     &:hover {
         background: linear-gradient(0deg, rgb(0 0 0 / 6%), rgb(0 0 0 / 6%)), rgb(254 44 85);
@@ -103,9 +152,8 @@
 .leftIcon {
     width: 20px;
     height: 20px;
-    text-align: center;
-    display: inline-block;
-    margin-right: 6px;
+    margin-right: 8px;
+    font-size: 2rem;
 }
 .title {
     font-size: 1.6rem;

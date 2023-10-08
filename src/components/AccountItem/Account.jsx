@@ -2,13 +2,12 @@ import React from 'react';
 import classNames from 'classnames/bind';
 import styles from './Account.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheck, faCheckCircle } from '@fortawesome/free-solid-svg-icons';
-import { Link } from 'react-router-dom';
+import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 const cx = classNames.bind(styles);
 
-export default function Account({ data }) {
+function Account({ data }) {
     return (
-        <Link to={`/@${data.nickname}`} className={cx('wrapper')}>
+        <a href={`/@${data.nickname}`} className={cx('wrapper')}>
             <img className={cx('avatar')} src={data.avatar} alt={data.full_name} />
             <div className={cx('info')}>
                 <h4 className={cx('name')}>
@@ -17,6 +16,8 @@ export default function Account({ data }) {
                 </h4>
                 <span className={cx('username')}>{data.nickname}</span>
             </div>
-        </Link>
+        </a>
     );
 }
+
+export default Account;

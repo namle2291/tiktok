@@ -1,7 +1,6 @@
-.search {
-    width: 361px;
+.wrapper {
+    width: 500px;
     height: 46px;
-    padding-left: 16px;
     background: rgb(22 24 35 / 6%);
     border-radius: 92px;
     display: flex;
@@ -12,13 +11,11 @@
     input {
         flex: 1;
         height: 100%;
-        color: #828282;
-        border: none;
-        // font-size: 1.6rem;
-        // line-height: 22px;
+        padding: 12px 16px;
+        font-size: 16px;
+        caret-color: rgba(254, 44, 85, 1);
+        color: rgba(22, 24, 35, 1);
         background-color: transparent;
-        outline: none;
-        caret-color: red;
     }
     &::after {
         content: '';
@@ -31,6 +28,13 @@
     }
     &:focus-within {
         border-color: rgb(22 24 35 / 20%);
+    }
+    &:hover {
+        border-color: rgb(22 24 35 / 20%);
+        .search-btn {
+            background: rgba(22, 24, 35, 0.06);
+            color: #0f1118;
+        }
     }
 }
 
@@ -48,11 +52,13 @@
 
 .search-btn {
     width: 52px;
-    height: 100%;
+    height: 44.4px;
     border: none;
-    font-size: 1.6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 1px;
     cursor: pointer;
-    color: #a6a7ab;
     &:hover {
         background: rgb(22 24 35 / 3%);
     }

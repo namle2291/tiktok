@@ -1,0 +1,141 @@
+.wrapper {
+    display: flex;
+    padding-bottom: 20px;
+    margin: 20px 0;
+    border-bottom: 1px solid #e9e9ea;
+}
+.image {
+    max-width: 56px;
+    max-height: 56px;
+    overflow: hidden;
+    border-radius: 50%;
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+.content {
+    width: 100%;
+    margin-left: 10px;
+}
+.info {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    .nickname {
+        font-weight: bold;
+        font-size: 18px;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+    .fullname {
+        margin-left: 5px;
+    }
+    .follow_btn {
+        margin-top: 10px;
+    }
+    .music {
+        color: rgba(22, 24, 35, 1);
+        font-size: 14px;
+        .icon {
+            font-size: 13px;
+            color: #666;
+        }
+        .name {
+            margin-left: 5px;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+.video {
+    width: 100%;
+    display: flex;
+    align-items: end;
+    .controls {
+        min-width: 327px;
+        min-height: 583px;
+        margin-top: 12px;
+        border-radius: 12px;
+        overflow: hidden;
+        position: relative;
+        font-size: 20px;
+        color: #fff;
+        .header {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            z-index: 1;
+            cursor: pointer;
+        }
+        .file {
+            max-width: 327px;
+            max-height: 583px;
+        }
+        video {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            object-fit: cover;
+        }
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            position: absolute;
+            bottom: 16px;
+            left: 16px;
+            right: 16px;
+            bottom: 38px;
+            z-index: 1;
+            span {
+                cursor: pointer;
+            }
+        }
+        .range {
+            position: absolute;
+            left: 16px;
+            right: 16px;
+            bottom: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            input {
+                width: 200px;
+            }
+            span {
+                font-size: 13px;
+            }
+        }
+    }
+    .actions {
+        margin-left: 20px;
+        cursor: pointer;
+        .likes,
+        .comments,
+        .saves,
+        .shared {
+            min-width: 48px;
+            min-height: 78px;
+            strong {
+                display: block;
+                text-align: center;
+                font-size: 12px;
+                margin-top: 6px;
+            }
+        }
+        .icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 48px;
+            font-size: 22px;
+            background: rgba(22, 24, 35, 0.06);
+        }
+    }
+}

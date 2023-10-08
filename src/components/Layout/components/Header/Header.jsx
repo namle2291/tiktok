@@ -15,13 +15,14 @@ import {
     faUser,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { MailIcon, MessageIcon } from '~/components/Icons';
+import { MailIcon, MessageIcon, PlusIcon } from '~/components/Icons/Icons';
 import { faTiktok } from '@fortawesome/free-brands-svg-icons';
 
-import Button from '~/components/Button';
+import Button from '~/components/Button/Button';
 import Menu from '~/components/Layout/Popper/Menu';
 import Image from '~/components/Images';
 import Search from '../Search/Search';
+import { DeviceIcon } from '~/components/Icons/Icons';
 
 import styles from './Header.module.scss';
 import classNames from 'classnames/bind';
@@ -95,8 +96,7 @@ const userMenu = [
 ];
 
 function Header() {
-    const user = true;
-
+    const user = false;
     return (
         <header className={cx('wrapper')}>
             <div className={cx('content')}>
@@ -168,13 +168,20 @@ function Header() {
                     </svg>
                 </Link>
                 {/* Search */}
-                <Search />
+                <div className={cx('search')}>
+                    <Search />
+                </div>
                 <div className={cx('actions')}>
                     {user ? (
                         <>
-                            <Button border leftIcon={<FontAwesomeIcon icon={faPlus} />}>
-                                Tải lên
+                            <Button border leftIcon={<PlusIcon />}>
+                                <span>Tải lên</span>
                             </Button>
+                            <Tippy content="Ứng dụng Tiktok cho máy tính" placement="bottom">
+                                <button className={cx('device-button')}>
+                                    <DeviceIcon />
+                                </button>
+                            </Tippy>
                             <Tippy content="Tin nhắn" placement="bottom">
                                 <button className={cx('action-button')}>
                                     <MessageIcon width={26} height={26} />
@@ -188,22 +195,26 @@ function Header() {
                         </>
                     ) : (
                         <>
-                            <Button border leftIcon={<FontAwesomeIcon className={cx('plus')} icon={faPlus} />}>
+                            <Button border leftIcon={<PlusIcon />}>
                                 <span>Tải lên</span>
                             </Button>
-                            <Button primary>
-                                <span>Đăng nhập</span>
-                            </Button>
-                            <Button rounded>
-                                <FontAwesomeIcon icon={faArrowUp} />
-                            </Button>
+                            <span className={cx('login_btn')}>
+                                <Button primary>
+                                    <span>Đăng nhập</span>
+                                </Button>
+                            </span>
+                            <Tippy content="Ứng dụng Tiktok cho máy tính" placement="bottom">
+                                <button className={cx('device-button')}>
+                                    <DeviceIcon />
+                                </button>
+                            </Tippy>
                         </>
                     )}
                     <Menu items={user ? userMenu : MENU_ITEMS}>
                         {user ? (
                             <Image
                                 className={cx('user-avatar')}
-                                src="https://files.fullstack.edu.vn/f8-tiktok/users/6339/6520febde3a16.jpg"
+                                src="https://p16-sign-va.tiktokcdn.com/tos-maliva-avt-0068/126c7421d34b8ce70079a4e380841181~c5_720x720.jpeg?x-expires=1696939200&x-signature=cLprYNRoXCUNdSZLzPNfrkE9tQg%3D"
                                 alt="NamLee"
                             />
                         ) : (
