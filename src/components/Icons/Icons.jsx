@@ -1,4 +1,5 @@
 import { forwardRef } from 'react';
+
 const MessageIcon = forwardRef(({ className, width = '2.2rem', height = '2.2rem' }, ref) => {
     return (
         <svg
@@ -54,14 +55,15 @@ const DeviceIcon = () => {
     );
 };
 
-const HomeIcon = () => {
+const HomeIcon = forwardRef(({ active }, ref) => {
     return (
         <svg
+            ref={ref}
             width="32"
             data-e2e=""
             height="32"
             viewBox="0 0 48 48"
-            fill="rgba(22, 24, 35, 1)"
+            fill={active ? '#fe2c55' : ''}
             xmlns="http://www.w3.org/2000/svg"
         >
             <path
@@ -71,10 +73,18 @@ const HomeIcon = () => {
             ></path>
         </svg>
     );
-};
-const UsersIcon = () => {
+});
+
+const UsersIcon = forwardRef(({ active }, ref) => {
     return (
-        <svg width="32" height="32" viewBox="0 0 48 48" fill="rgba(22, 24, 35, 1)" xmlns="http://www.w3.org/2000/svg">
+        <svg
+            ref={ref}
+            fill={active ? '#fe2c55' : ''}
+            width="32"
+            height="32"
+            viewBox="0 0 48 48"
+            xmlns="http://www.w3.org/2000/svg"
+        >
             <path
                 fillRule="evenodd"
                 clipRule="evenodd"
@@ -92,12 +102,13 @@ const UsersIcon = () => {
             ></path>
         </svg>
     );
-};
+});
 
-const CompassIcon = () => {
+const CompassIcon = forwardRef(({ active }, ref) => {
     return (
         <svg
-            fill="rgba(22, 24, 35, 1)"
+            ref={ref}
+            fill={active ? '#fe2c55' : ''}
             width="1.6em"
             height="1.6em"
             viewBox="0 0 48 48"
@@ -115,16 +126,16 @@ const CompassIcon = () => {
             ></path>
         </svg>
     );
-};
+});
 
-const CameraIcon = () => {
+const CameraIcon = forwardRef(({ active }, ref) => {
     return (
         <svg
+            ref={ref}
+            fill={active ? '#fe2c55' : ''}
             width="32"
-            data-e2e=""
             height="32"
             viewBox="0 0 32 32"
-            fill="rgba(22, 24, 35, 1)"
             xmlns="http://www.w3.org/2000/svg"
         >
             <path
@@ -135,16 +146,16 @@ const CameraIcon = () => {
             <path d="M15 15.134C15.6667 15.5189 15.6667 16.4811 15 16.866L12 18.5981C11.3333 18.983 10.5 18.5019 10.5 17.7321L10.5 14.2679C10.5 13.4981 11.3333 13.017 12 13.4019L15 15.134Z"></path>
         </svg>
     );
-};
+});
 
-const PlusIcon = () => {
+const PlusIcon = forwardRef(({ active }, ref) => {
     return (
         <svg
-            className="tiktok-qeydvm-StyledPlusIcon e18d3d945"
+            ref={ref}
+            fill={active ? '#fe2c55' : ''}
             width="1em"
             height="1em"
             viewBox="0 0 16 16"
-            fill="currentColor"
             xmlns="http://www.w3.org/2000/svg"
         >
             <path
@@ -154,16 +165,17 @@ const PlusIcon = () => {
             ></path>
         </svg>
     );
-};
+});
 
-const SearchIcon = () => {
+const SearchIcon = forwardRef(({ fill }, ref) => {
     return (
         <svg
+            ref={ref}
+            fill={fill}
             width="24"
             data-e2e=""
             height="24"
             viewBox="0 0 48 48"
-            fill="rgba(22, 24, 35, .34)"
             xmlns="http://www.w3.org/2000/svg"
         >
             <path
@@ -173,6 +185,16 @@ const SearchIcon = () => {
             ></path>
         </svg>
     );
-};
+});
 
-export { MessageIcon, MailIcon, DeviceIcon, HomeIcon, UsersIcon, CompassIcon, CameraIcon, PlusIcon, SearchIcon };
+export {
+    MessageIcon,
+    MailIcon,
+    DeviceIcon,
+    HomeIcon,
+    UsersIcon,
+    CompassIcon,
+    CameraIcon,
+    PlusIcon,
+    SearchIcon
+};

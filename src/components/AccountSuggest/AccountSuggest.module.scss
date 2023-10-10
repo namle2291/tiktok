@@ -1,14 +1,15 @@
 .wrapper {
-    width: 244px;
+    width: 226px;
     height: 302px;
     position: relative;
     border-radius: 12px;
     overflow: hidden;
     cursor: pointer;
-    margin-bottom: 7px;
+    margin-bottom: 18px;
 }
 .card {
     width: 226px;
+    height: 100%;
     margin: auto;
 }
 .thumbnail {
@@ -44,6 +45,7 @@
     }
     .fullname {
         font-size: 18px;
+        line-height: 24px;
     }
     .nickname {
         margin-bottom: 8px;

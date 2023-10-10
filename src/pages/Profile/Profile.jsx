@@ -11,22 +11,29 @@ const cx = classNames.bind(styles);
 
 export default function Profile() {
     const [user, setUser] = useState({});
+    const [loading, setLoading] = useState(false);
 
     const { nickname } = useParams();
 
     useEffect(() => {
         if (nickname) {
+            setLoading(true);
             const fetchAPI = async () => {
                 const data = await userService.getUserInfo(nickname);
+                setLoading(false);
                 setUser(data);
             };
             fetchAPI();
         }
-    }, [nickname]);
+    }, []);
 
     return (
-        <div className={cx('wrapper')}>
-            <AccountInfo data={user} />
-        </div>
+        <>
+            {!loading && (
+                <div className={cx('wrapper')}>
+                    <AccountInfo data={user} />
+                </div>
+            )}
+        </>
     );
 }

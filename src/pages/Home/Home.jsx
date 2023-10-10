@@ -7,10 +7,12 @@ import Video from '~/components/Video/Video';
 
 import styles from './Home.module.scss';
 import classNames from 'classnames/bind';
+import { useAuthContext } from '~/contexts/AuthProvider';
 const cx = classNames.bind(styles);
 
 export default function Home() {
     const [videos, setVideos] = useState([]);
+
     useEffect(() => {
         const fetchAPI = async () => {
             const result = await homeService.getVideoList('for-you', 1);

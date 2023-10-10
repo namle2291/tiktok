@@ -4,7 +4,8 @@
     border-radius: 4px;
 }
 // Button Type
-.primary {
+.primary,
+.to.primary {
     min-width: 100px;
     font-size: 1.6rem;
     border: none;
@@ -26,8 +27,6 @@
     font-weight: 600;
     font-size: 18px;
     padding: 8px;
-    background-color: var(--white);
-    transition: 0.3s;
     &:hover {
         background-color: rgb(22 24 35 / 3%);
     }
@@ -40,6 +39,7 @@
         line-height: 32px;
         width: 32px;
         height: 32px;
+        color: red;
     }
 }
 .tab {
@@ -70,9 +70,9 @@
     }
 }
 .border {
-    min-width: 111.062px;
+    min-width: 111px;
+    min-height: 36px;
     padding: 0 16px;
-    min-height: 34.4px;
     font-weight: 600;
     font-size: 16px;
     line-height: 24px;
@@ -99,7 +99,7 @@
     }
     span {
         height: 24px;
-        font-weight: bold;
+        font-weight: 600;
     }
 }
 .rounded {
@@ -138,7 +138,7 @@
     }
 }
 .large {
-    width: 324px;
+    min-width: 208px;
     height: 48px;
     color: rgb(254 44 85);
     border: 1px solid rgb(254 44 85);
@@ -155,6 +155,14 @@
     margin-right: 8px;
     font-size: 2rem;
 }
+
 .title {
     font-size: 1.6rem;
+}
+
+.link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 36px;
 }

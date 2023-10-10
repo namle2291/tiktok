@@ -9,41 +9,14 @@ import Sidebar from '../components/Sidebar/Sidebar';
 
 import styles from './DefaultLayout.module.scss';
 import classNames from 'classnames/bind';
+import { useCallback } from 'react';
+import BackToTop from '~/components/BackToTop/BackToTop';
 const cx = classNames.bind(styles);
 
 export default function DefaultLayout({ children }) {
-    const [visible, setVisible] = useState(false);
-
-    const handleScroll = () => {
-        const scrolled = document.documentElement.scrollTop;
-        if (scrolled >= 20) {
-            setVisible(true);
-        } else if (scrolled <= 0) {
-            setVisible(false);
-        }
-    };
-
-    const handleBackToTop = () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth',
-        });
-    };
-
-    useEffect(() => {
-        window.addEventListener('scroll', handleScroll);
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
-    }, []);
-
     return (
         <div className={cx('wrapper')}>
-            {visible && (
-                <Button onClick={handleBackToTop} rounded>
-                    <FontAwesomeIcon icon={faArrowUp} />
-                </Button>
-            )}
+            <BackToTop />
             <Header />
             <div className={cx('container')}>
                 <div className={cx('sidebar')}>

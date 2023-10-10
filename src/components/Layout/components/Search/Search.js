@@ -94,7 +94,7 @@ export default function Search() {
                     {loading && <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />}
 
                     <button className={cx('search-btn')} onMouseDown={(e) => e.preventDefault()}>
-                        <SearchIcon />
+                        <SearchIcon fill="rgba(22, 24, 35, 0.34)" />
                     </button>
                 </div>
             </HeadlessTippy>

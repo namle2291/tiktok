@@ -1,12 +1,22 @@
 import axios from 'axios';
 
 const httpRequest = axios.create({
-    baseURL: 'https://tiktok.fullstack.edu.vn/api',
+    baseURL: process.env.REACT_APP_API_BASE_URL,
+});
+
+httpRequest.interceptors.request.use((config) => {
+    const token = localStorage.getItem('token');
+    config.headers.Authorization = `Bearer ${token}`;
+    return config;
 });
 
 const get = async (path, options = {}) => {
     const response = await httpRequest.get(path, options);
     return response.data;
 };
+const post = async (path, options = {}) => {
+    const response = await httpRequest.post(path, options);
+    return response.data;
+};
 
-export { get, httpRequest };
+export { get, post, httpRequest };

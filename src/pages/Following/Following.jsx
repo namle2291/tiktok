@@ -12,7 +12,7 @@ export default function Following() {
 
     useEffect(() => {
         const fetchAPI = async () => {
-            const result = await userServices.getUserSuggested(1, 5);
+            const result = await userServices.getUserSuggested(1, 10);
             setUserSuggested(result);
         };
         fetchAPI();

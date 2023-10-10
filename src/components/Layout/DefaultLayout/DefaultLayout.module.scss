@@ -27,15 +27,15 @@
 }
 
 ::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    // background: #eee;
 }
 
 ::-webkit-scrollbar {
-    width: 9px;
+    width: 8px;
     border: none;
     background: none;
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: #4444;
+    background-color: #ddd;
 }

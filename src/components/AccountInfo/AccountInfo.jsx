@@ -16,7 +16,14 @@ function AccountInfo({ data }) {
             <div className={cx('content')}>
                 <div className={cx('user-info')}>
                     <div className={cx('avatar')}>
-                        <img src={data.avatar} alt="" />
+                        <img
+                            src={
+                                data.avatar !== 'https://files.fullstack.edu.vn/f8-tiktok/'
+                                    ? data.avatar
+                                    : 'https://yt3.googleusercontent.com/UsflU74uvka_3sejOu3LUGwzOhHJV0eIYoWcvOfkOre_c12uIN4ys-QqRlAkbusEmbZjTA-b=s900-c-k-c0x00ffffff-no-rj'
+                            }
+                            alt=""
+                        />
                     </div>
                     <div className={cx('title')}>
                         <h1 className={cx('nick_name')}>{data.nickname}</h1>
