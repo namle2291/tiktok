@@ -1,5 +1,5 @@
 import React from 'react';
 
 export default function NotFound() {
-    return <center>Không tìm thấy trang!</center>;
+    return <center style={{ padding: '10px' }}>Không tìm thấy trang!</center>;
 }

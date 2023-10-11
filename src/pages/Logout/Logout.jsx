@@ -10,17 +10,14 @@ import * as authService from '~/services/authService';
 export default function Logout() {
     const [loading, setLoading] = useState(false);
 
-    const { setToken, setAuth } = useAuthContext();
-
     const timer = useRef();
     const navigate = useNavigate();
 
     useEffect(() => {
         setLoading(true);
         timer.current = setTimeout(() => {
+            localStorage.removeItem('user');
             localStorage.removeItem('token');
-            setToken('');
-            setAuth({});
             setLoading(false);
             navigate('/');
         }, 2000);

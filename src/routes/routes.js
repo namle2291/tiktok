@@ -6,7 +6,6 @@ import Search from '~/pages/Search/Search';
 
 import HeaderOnly from '~/components/Layout/HeaderOnly/HeaderOnly';
 import DefaultLayout from '~/components/Layout/DefaultLayout/DefaultLayout';
-import Login from '~/pages/Login/Login';
 import NotFound from '~/pages/NotFound/NotFound';
 import Logout from '~/pages/Logout/Logout';
 
@@ -33,12 +32,7 @@ const publicRoutes = [
     {
         path: '/search',
         component: Search,
-        layout: null,
-    },
-    {
-        path: '/login',
-        component: Login,
-        layout: null,
+        layout: DefaultLayout,
     },
     {
         path: '/logout',
@@ -48,7 +42,7 @@ const publicRoutes = [
     {
         path: '*',
         component: NotFound,
-        layout: null,
+        layout: DefaultLayout,
     },
 ];
 const privateRoutes = [];

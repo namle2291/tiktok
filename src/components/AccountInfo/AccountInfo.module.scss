@@ -52,9 +52,48 @@
     color: #161823;
 }
 
-.follow_btn {
-    min-width: 208px;
+.follow-button {
+    button {
+        min-width: 208px;
+        margin-top: 16px;
+    }
+}
+
+.edit-button {
     margin-top: 16px;
+}
+
+.message-box {
+    display: flex;
+    align-items: center;
+    margin-top: 16px;
+    .message-button {
+        margin-right: 8px;
+        button {
+            min-width: 164px;
+            height: 36px;
+            span {
+                font-size: 18px;
+            }
+        }
+    }
+    .follow-icon {
+        width: 36px;
+        height: 36px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid rgba(22, 24, 35, 0.12);
+        border-radius: 4px;
+        cursor: pointer;
+        &:hover {
+            background-color: rgba(22, 24, 35, 0.03);
+        }
+        span {
+            width: 20px;
+            height: 20px;
+        }
+    }
 }
 
 .videos-container {

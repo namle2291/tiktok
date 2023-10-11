@@ -3,11 +3,10 @@ import { useEffect } from 'react';
 
 import * as homeService from '~/services/homeService';
 
-import Video from '~/components/Video/Video';
+import Video from '~/components/Recomend/Recomend';
 
 import styles from './Home.module.scss';
 import classNames from 'classnames/bind';
-import { useAuthContext } from '~/contexts/AuthProvider';
 const cx = classNames.bind(styles);
 
 export default function Home() {

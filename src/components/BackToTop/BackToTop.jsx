@@ -6,6 +6,11 @@ import Button from '../Button/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
 
+import styles from './BackToTop.module.scss';
+import classNames from 'classnames/bind';
+
+const cx = classNames.bind(styles);
+
 export default function BackToTop() {
     const [visible, setVisible] = useState(false);
 
@@ -32,12 +37,12 @@ export default function BackToTop() {
         };
     }, []);
     return (
-        <>
+        <div className={cx('wrapper')}>
             {visible && (
                 <Button onClick={handleBackToTop} rounded>
                     <FontAwesomeIcon icon={faArrowUp} />
                 </Button>
             )}
-        </>
+        </div>
     );
 }

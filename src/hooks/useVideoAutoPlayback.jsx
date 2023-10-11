@@ -1,27 +1,30 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import { useRef, useEffect } from 'react';
 
 const useVideoAutoPlayback = (options) => {
-    const containerRef = useRef(null);
-    const videoRef = useRef(null);
+    const containerRef = useRef();
+    const videoRef = useRef();
 
-    const cb = (entries) => {
+    const callback = (entries) => {
         const [entry] = entries;
 
         if (entry.isIntersecting) {
             videoRef.current.play();
-        } else {
+        } else if (!entry.isIntersecting) {
             videoRef.current.pause();
         }
     };
 
     useEffect(() => {
-        const observer = new IntersectionObserver(cb, options);
+        let observer = new IntersectionObserver(callback, options);
 
-        if (containerRef.current) observer.observe(containerRef.current);
+        let container = containerRef.current;
+
+        if (container) observer.observe(container);
 
         return () => {
-            if (containerRef.current) observer.unobserve(containerRef.current);
+            if (container) {
+                observer.unobserve(container);
+            }
         };
     }, [containerRef, options]);
 

@@ -25,7 +25,7 @@ export default function Profile() {
             };
             fetchAPI();
         }
-    }, []);
+    }, [nickname]);
 
     return (
         <>

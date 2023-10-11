@@ -42,12 +42,10 @@ function Sidebar() {
 
     const [userFollowing, setUserFollowing] = useState([]);
 
-    const { auth, token } = useAuthContext();
-
     useEffect(() => {
-        if (token) {
+        if (localStorage.getItem('user')) {
             const fetchAPI = async () => {
-                const result = await userService.getUserFollowing(1, token);
+                const result = await userService.getUserFollowing(1);
                 setUserFollowing(result);
             };
             fetchAPI();
@@ -80,7 +78,7 @@ function Sidebar() {
                 })}
             </div>
             <div className={cx('user-following')}>
-                {Object.keys(auth).length > 0 == true ? (
+                {localStorage.getItem('user') ? (
                     <>
                         <h2>Các tài khoản đang follow</h2>
                         {userFollowing.map((user) => (

@@ -10,12 +10,8 @@ const getUserSuggested = async (page = 1, per_page = 5) => {
     return response.data;
 };
 
-const getUserFollowing = async (page = 1, token) => {
-    const response = await get(`/me/followings?page=${page}`, {
-        headers: {
-            Authorization: 'Bearer ' + token,
-        },
-    });
+const getUserFollowing = async (page = 1) => {
+    const response = await get(`/me/followings?page=${page}`);
     return response.data;
 };
 
