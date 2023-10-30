@@ -12,7 +12,7 @@ const getUserSuggested = async (page = 1, per_page = 5) => {
 
 const getUserFollowing = async (page = 1) => {
     const response = await get(`/me/followings?page=${page}`);
-    return response.data;
+    return response;
 };
 
 const followUser = async (id, action = 'follow') => {
@@ -20,4 +20,9 @@ const followUser = async (id, action = 'follow') => {
     return response.data;
 };
 
-export { getUserInfo, getUserSuggested, getUserFollowing, followUser };
+const updateUser = async (payload) => {
+    const response = await post(`/auth/me?_method=PATCH`, payload);
+    return response.data;
+};
+
+export { getUserInfo, getUserSuggested, getUserFollowing, followUser, updateUser };

@@ -3,9 +3,7 @@ import { useEffect } from 'react';
 import { useRef } from 'react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAuthContext } from '~/contexts/AuthProvider';
-
-import * as authService from '~/services/authService';
+import Loading from '~/components/Loading/Loading';
 
 export default function Logout() {
     const [loading, setLoading] = useState(false);
@@ -27,5 +25,5 @@ export default function Logout() {
         };
     }, []);
 
-    return <>{loading && <span>Loading...</span>}</>;
+    return <>{loading && <Loading />}</>;
 }

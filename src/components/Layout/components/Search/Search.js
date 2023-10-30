@@ -4,7 +4,7 @@ import HeadlessTippy from '@tippyjs/react/headless';
 import 'tippy.js/dist/tippy.css';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch, faSpinner, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
+import { faSpinner, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 
 import Account from '~/components/AccountItem/Account';
 import { Wrapper as PopperWrapper } from '../../Popper';

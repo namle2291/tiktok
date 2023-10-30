@@ -2,17 +2,7 @@ import React, { useState } from 'react';
 
 import Button from '../Button/Button';
 import { Link } from 'react-router-dom';
-import {
-    faBookmark,
-    faCommentDots,
-    faEllipsis,
-    faHeart,
-    faMusic,
-    faPause,
-    faPlay,
-    faShare,
-    faVolumeHigh,
-} from '@fortawesome/free-solid-svg-icons';
+import { faBookmark, faCommentDots, faEllipsis, faHeart, faMusic, faShare } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { useAuthContext } from '~/contexts/AuthProvider';
@@ -36,14 +26,14 @@ export default function Recomend({ data }) {
     const { user } = useAuthContext();
 
     const handleFollow = (id) => {
-        if (user) {
+        if (localStorage.getItem('user')) {
             setIsFollow(!isFollow);
             const fetchAPI = async () => {
                 await userService.followUser(id, !isFollow ? 'follow' : 'unfollow');
             };
             fetchAPI();
         } else {
-            toast.warn('Vui lòng đăng nhập!')
+            toast.warn('Vui lòng đăng nhập!');
         }
     };
 

@@ -7,6 +7,7 @@ import * as userService from '~/services/userService';
 
 import styles from './Profile.module.scss';
 import classNames from 'classnames/bind';
+import Loading from '~/components/Loading/Loading';
 const cx = classNames.bind(styles);
 
 export default function Profile() {
@@ -29,6 +30,7 @@ export default function Profile() {
 
     return (
         <>
+            {loading && <Loading />}
             {!loading && (
                 <div className={cx('wrapper')}>
                     <AccountInfo data={user} />

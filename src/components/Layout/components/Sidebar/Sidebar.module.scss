@@ -5,9 +5,17 @@
 }
 
 .active {
-    color: #fe2c55;
+    color: var(--primary);
     background-color: rgb(22 24 35 / 3%);
 }
+
+.see-more {
+    color: var(--primary);
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
 .nav {
     margin-bottom: 8px;
 }
@@ -31,7 +39,7 @@
         color: rgba(22, 24, 35, 0.5);
     }
     .login-button {
-        a {
+        button {
             margin-top: 20px;
             span {
                 font-size: 18px;
@@ -40,13 +48,12 @@
     }
     h2 {
         font-size: 14px;
-        padding: 0 8px;
         margin-bottom: 8px;
         color: rgba(22, 24, 35, 0.75);
     }
     .user {
         h4 {
-            font-size: 16px;
+            font-size: 16px !important;
         }
         img {
             width: 32px;
@@ -55,7 +62,7 @@
         > {
             width: 224px;
             a {
-                padding: 8px;
+                padding: 5px 0 !important;
                 align-items: start;
                 div {
                     h4 {

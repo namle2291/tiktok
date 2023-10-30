@@ -14,15 +14,17 @@ export default function Menu({ children, items }) {
     const [history, setHistory] = useState([{ data: items }]);
     const current = history[history.length - 1];
 
-    const menuList = (items) => {
+    const menuItem = () => {
         return current.data.map((e, index) => {
             const isParent = e.children ? true : false;
             const isSaparate = e.separate ? true : false;
+            const isUser = e.isUser ? true : false;
             return (
                 <MenuItem
                     key={index}
                     data={e}
                     isSaparate={isSaparate}
+                    isUser={isUser}
                     onClick={() => {
                         if (isParent) {
                             setHistory((prev) => [...prev, e.children]);
@@ -32,6 +34,7 @@ export default function Menu({ children, items }) {
             );
         });
     };
+
     return (
         <Tippy
             delay={[0, 700]}
@@ -49,7 +52,7 @@ export default function Menu({ children, items }) {
                                 }}
                             />
                         )}
-                        {menuList(items)}
+                        {menuItem()}
                     </PopperWrapper>
                 </div>
             )}

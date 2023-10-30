@@ -36,6 +36,7 @@ export default function BackToTop() {
             window.removeEventListener('scroll', handleScroll);
         };
     }, []);
+    
     return (
         <div className={cx('wrapper')}>
             {visible && (

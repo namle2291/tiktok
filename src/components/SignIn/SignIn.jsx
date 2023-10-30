@@ -6,11 +6,9 @@ import { useAuthContext } from '~/contexts/AuthProvider';
 
 import * as authService from '~/services/authService';
 
-import { useNavigate } from 'react-router-dom';
 
 import styles from './SignIn.module.scss';
 import classNames from 'classnames/bind';
-import Modal from '../Modal/Modal';
 
 const cx = classNames.bind(styles);
 
