@@ -2,7 +2,17 @@ import React, { useState } from 'react';
 
 import Button from '../Button/Button';
 import { Link } from 'react-router-dom';
-import { faBookmark, faCommentDots, faEllipsis, faHeart, faMusic, faShare } from '@fortawesome/free-solid-svg-icons';
+import {
+    faBookmark,
+    faCommentDots,
+    faEllipsis,
+    faHeart,
+    faMusic,
+    faPause,
+    faPlay,
+    faShare,
+    faVolumeHigh,
+} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { useAuthContext } from '~/contexts/AuthProvider';
@@ -12,6 +22,8 @@ import styles from './Recomend.module.scss';
 import classNames from 'classnames/bind';
 import { useVideoAutoPlayback } from '~/hooks/useVideoAutoPlayback';
 import { toast } from 'react-toastify';
+import { useDispatch, useSelector } from 'react-redux';
+import { setPlaying, setVolume } from '~/features/settingPlayFeature';
 const cx = classNames.bind(styles);
 
 export default function Recomend({ data }) {
@@ -23,7 +35,10 @@ export default function Recomend({ data }) {
         threshold: 0.5,
     });
 
+    const { volume, playing } = useSelector((state) => state.setting);
+
     const { user } = useAuthContext();
+    const dispatch = useDispatch();
 
     const handleFollow = (id) => {
         if (localStorage.getItem('user')) {
@@ -98,25 +113,28 @@ export default function Recomend({ data }) {
                             <div className={cx('header')}>
                                 <FontAwesomeIcon icon={faEllipsis} />
                             </div>
-                            <div className={cx('file')}>
+                            <div
+                                // to={`/@${data.user.nickname}/video/${data.uuid}`}
+                                className={cx('file', 'cursor-pointer')}
+                            >
                                 <video controls ref={videoRef} src={data.file_url} muted loop></video>
                             </div>
-                            <div className={cx('footer')}>
-                                <span>
-                                    {/* {!playing ? <FontAwesomeIcon icon={faPlay} /> : <FontAwesomeIcon icon={faPause} />} */}
+                            {/* <div className={cx('footer')}>
+                                <span onClick={() => dispatch(setPlaying(!playing))}>
+                                    {!playing ? <FontAwesomeIcon icon={faPlay} /> : <FontAwesomeIcon icon={faPause} />}
                                 </span>
-                                {/* <span className={cx('volume')}>
+                                <span className={cx('volume')}>
                                     <FontAwesomeIcon icon={faVolumeHigh} />
                                     <input
                                         min={0}
                                         max={100}
-                                        value={currentVolume}
-                                        onChange={handleChangeVolume}
+                                        // value={volume}
+                                        onChange={(e) => dispatch(setVolume(e.target.value / 100))}
                                         className={cx('volume-progress')}
                                         type="range"
                                     />
-                                </span> */}
-                            </div>
+                                </span>
+                            </div> */}
                         </div>
                         <div className={cx('actions')}>
                             <div className={cx('likes')}>

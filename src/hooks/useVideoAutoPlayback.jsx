@@ -1,8 +1,12 @@
 import { useRef, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { setPlaying } from '~/features/settingPlayFeature';
 
 const useVideoAutoPlayback = (options) => {
     const containerRef = useRef();
     const videoRef = useRef();
+
+    const { playing } = useSelector((state) => state.setting);
 
     const callback = (entries) => {
         const [entry] = entries;

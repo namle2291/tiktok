@@ -8,6 +8,7 @@ import HeaderOnly from '~/components/Layout/HeaderOnly/HeaderOnly';
 import DefaultLayout from '~/components/Layout/DefaultLayout/DefaultLayout';
 import NotFound from '~/pages/NotFound/NotFound';
 import Logout from '~/pages/Logout/Logout';
+import Video from '~/pages/Video/Video';
 
 const publicRoutes = [
     {
@@ -23,6 +24,11 @@ const publicRoutes = [
         path: '/@:nickname',
         component: Profile,
         layout: DefaultLayout,
+    },
+    {
+        path: '/@:nickname/video/:id',
+        component: Video,
+        layout: null,
     },
     {
         path: '/upload',
